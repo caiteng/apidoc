@@ -59,6 +59,10 @@ hash = HMAC-SHA256(payload, appsecret).to_hex
   }
 }
 ```
+| Name          | Type      |  Explain       |
+| ------------- | --------- | -------------- |
+| currency_code |  String   |                |
+| address       |  String   |                |
 
 
 2. `GET /v1beta/accounts/{currency_code}`  获取特定币种的余额
@@ -73,6 +77,14 @@ hash = HMAC-SHA256(payload, appsecret).to_hex
    }
 }
 ```
+
+| Name          | Type      |  Explain       |
+| ------------- | --------- | -------------- |
+| currency_code |  String   |                |
+| balance       |  Double   |  币种余额                      |
+| locked        |  Double   |  币种冻结数量，但用于提现时会先冻结 |
+
+
 
 3. `POST /v1beta/withdraws` 申请提现
 
@@ -102,6 +114,19 @@ hash = HMAC-SHA256(payload, appsecret).to_hex
   }
 }
 ```
+
+| Name          | Type      |  Explain       |
+| ------------- | --------- | -------------- |
+| currency_code |  String   |                |
+| txid          |  String   |  区块链真实交易号 |
+| state         |  String   |  状态, 有 submitted, withdrawing, sent |
+| from          |  String   |  提现发出地址    |
+| to            |  String   |  提现接收地址    |
+| memo          |  String   |  提现备注       |
+| confirmations |  Integer  |  提现当前确认数  |
+| external_uuid |  String   |  提现对应商户系统的 ID 值 |
+
+
 
 # 提供回调接口
 
