@@ -27,7 +27,7 @@ Hermes 认证基于 OAuth2 bearer token 认证，签名使用 HMAC sha256，即�
 1. 签名 payload 是对 HTTP verb, HTTP path 和 HTTP params 进行组装, 如
 
 ```
-POST|/v1beta/addresses|currency_code=eth&sn=user_id
+payload = "POST|/v1beta/addresses|currency_code=eth&sn=user_id"
 ```
 
 注意 HTTP params 由 HTTP URL queries 和 HTTP Body 请求参数组成键值对, 对其中键进行排序并用 `&` 连接
@@ -108,7 +108,7 @@ hash = HMAC-SHA256(payload, appsecret).to_hex
 Hermes 通过商户提供的回调接口，将充值信息或者提现状态反馈给商户，为了保证安全。回调同样采用上述的认证签名机制, 即发送交易会在 HTTP header 传入
 
 
-1. X-Hermes-Key: <appkey>
+1. X-Hermes-Key: `<appkey>`
 
 2. X-Hermes-Signature: 同理, `hash = HMAC-SHA256(payload, appsecret).to_hex` 结果
 
@@ -116,6 +116,9 @@ Hermes 通过商户提供的回调接口，将充值信息或者提现状态反�
 
 
 ## 充值回调
+
+`POST https://merchant-server.com/webhook`
+
 
 ```json
 # Request
@@ -134,6 +137,8 @@ Hermes 通过商户提供的回调接口，将充值信息或者提现状态反�
 
 
 ## 提现回调
+
+`POST https://merchant-server.com/webhook`
 
 ```json
 # Request
