@@ -16,19 +16,22 @@ API endpoint: https://hermes.ocx.im
 
 # 认证与签名
 
-Hermes 认证基于 OAuth2 bearer token 认证，签名使用 HMAC sha256，发起 HTTP 请求前通过在 header 设置
+Hermes 认证基于 OAuth2 bearer token 认证，签名使用 HMAC sha256，即发起 HTTP 请求前需要设置 header 
 
-1. X-Hermes-Key: <appkey>
+1. X-Hermes-Key: `<appkey>`
 
 2. X-Hermes-Signature: 参考下述签名步骤得到的 hash 值
 
 ## 签名步骤
 
-1. 签名 payload 是对 HTTP verb, HTTP path 和 HTTP queries(body) 进行组装, 如
+1. 签名 payload 是对 HTTP verb, HTTP path 和 HTTP params 进行组装, 如
 
 ```
 POST|/v1beta/addresses|currency_code=eth&sn=user_id
 ```
+
+注意 HTTP params 由 HTTP URL queries 和 HTTP Body 请求参数组成键值对, 对其中键进行排序并用 `&` 连接
+
 
 2. 对上述组装后的字符串使用 `HMAC-SHA256` 加密算法进行 `hash` 计算:
 
