@@ -8,11 +8,11 @@
 
 测试地址TEST_URL:`https://hermes.ocx.im`
 
-测试APP_KEY: `88b4d0fe76dcfce6420d59c454eb560e692a6f67c035a8fb336ef36420f4333f`
+测试APP_KEY: ``
 
 
 测试APP_SECRET:
-`7ca2b1c29b22c7e45caaefca88c6235ab7cf0d8f45a5ad2031f8ade56d319dd8`
+``
 
 
 ## 1.签名
