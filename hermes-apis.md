@@ -576,7 +576,7 @@ GET {{TEST_URL}}/v1beta/deposits/5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34
 | page_size  | int | 每页显示数量 |
 | start_time  | string | 开始时间 |
 | end_time  | string | 结束时间 |
-| state  | string | 状态。depositing/done=充值中/完成 |
+| state  | string | 状态。withdrawing/done=提现中/完成 |
 | int  | cursor_limit | 单页限制 |
 
 
