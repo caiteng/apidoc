@@ -714,8 +714,8 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 # Request
 {
-  "type": "Deposit",
   "data": {
+    "type": "Deposit",
     "currency_code": "eth",
     "txid": "0xethereumtxid",
     "address": "0xfromaddress",
@@ -762,8 +762,8 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 ```
 # Request
 {
-  "type": "Withdraw",
   "data": {
+    "type": "Withdraw",
     "currency_code": "eth",
     "txid": "0xethereumtxid",
     "state": "withdrawing", 
