@@ -1,11 +1,12 @@
 # OCX-Hermes 开发者接口 
-```当前版本：1.2```
+```当前版本：1.3```
 
 | 版本历史      | 备注               |时间                                          |
 | ---------- | -------------------           |           ---|
 | 1.0 | 增加Hermes签名与基本接口                |  2018/10/22  |
 | 1.1 | 增加版本修改历史，增加申请提现接口提示信息  |  2018/10/23  |
 | 1.2 | 增加错误码对照表，修改返回参数的错误码类型  |  2018/10/24  |
+| 1.3 | 增加回调地址接口                        |  2018/10/25  |
 
 测试地址TEST_URL:`https://hermes.ocx.im`
 
@@ -258,6 +259,10 @@ curl -i -H 'Content-Type: application/json' -H 'X-Hermes-Key: b645fe6588bfc8754a
 
 获取单个提现记录
 `GET /v1beta/withdraws/{uuid}`
+
+提现回调
+
+提现回调
 
 
 #### `POST /v1beta/addresses `  获取待充值地址
@@ -677,18 +682,110 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 
 
+#### `POST {{NOTIFY_URL}}`  充值回调
+* NOTIFY_URL
+
+ ` 合作方提供{{NOTIFY_URL}} `
+ 
+* 入参
+
+| 字段        | 类型    | 解释      |
+| ----------- | ------- | -----   |
+| type  | string | 类型。充值/提现=Deposit/Withdraw   |
+| txid  | string | TxHash          |
+| state  | string | 状态。depositing/done  |
+| currency_code | string | 币种code  |
+| memo  | string | 备注              |
+| address  | string | 地址           |
+| amount  | double | 金额            |
+
+
+* 出参 （由双方沟通协定）
+
+| 字段        | 类型    | 解释       |
+| ----------- | ------- | -------- |
+| message     | string | 请求结果   |
+
+
+
+* 请求示例
+
+```
+
+# Request
+{
+  "type": "Deposit",
+  "data": {
+    "currency_code": "eth",
+    "txid": "0xethereumtxid",
+    "address": "0xfromaddress",
+    "state": "depositing", 
+    "amount": 1.0,
+    "memo": "blockchain memo"
+  }
+}
+
+```
+
+
+
+
+#### `POST {{NOTIFY_URL}}`  提现回调
+* NOTIFY_URL
+
+ ` 合作方提供{{NOTIFY_URL}} `
+ 
+* 入参
+
+| 字段        | 类型    | 解释        |
+| ----------- | ------- | -----     |
+| type  | string | 类型。充值/提现=Deposit/Withdraw   |
+| txid  | string | TxHash           |
+| state  | string | 状态。withdrawing/done    |
+| currency_code | string | 币种code  |
+| external_uuid  | string | 合作方交易唯一标示 |
+| memo  | string | 备注 |
+
+
+
+
+* 出参 （由双方沟通协定）
+
+| 字段        | 类型    | 解释     |
+| ----------- | ------- | -------- |
+| message  | string | 请求成功 |
+
+
+
+* 请求示例
+
+```
+# Request
+{
+  "type": "Withdraw",
+  "data": {
+    "currency_code": "eth",
+    "txid": "0xethereumtxid",
+    "state": "withdrawing", 
+    "external_uuid": "merchant withdraw uuid"
+  }
+}
+
+```
+
+
 
 
 
 ## 错误码对照表
 
 | 错误码       | 解释                       |
-| ----------- | --------                   |
-| 1001        | 内部错误，消息推送服务异常。    |
-| 1002        | 内部错误，数据库返回失败。      |
-| 1003        | 必要参数不能为空。            |
-| 1004        | 区块链返回错误。              |
-| 1005        | 格式化数据失败。              |
+| ----------- | --------                  |
+| 1001        | 内部错误，消息推送服务异常。   |
+| 1002        | 内部错误，数据库返回失败。    |
+| 1003        | 必要参数不能为空。           |
+| 1004        | 区块链返回错误。            |
+| 1005        | 格式化数据失败。             |
 | 3000        | 未知币种。             |
 | 3001        | 未知账户。             |
 | 3002        | 未知商户。             |
