@@ -53,7 +53,7 @@ end
 2. 对上述字符串使用`HMAC-SHA256`加密算法进行SHA256计算:
 
 ~~~
- X-Hermes-Signature = HMAC-SHA256(payload, secret_key).to_hex
+ X-Hermes-Signature = HMAC-SHA256(payload, app_secret).to_hex
  处理得到：
  X-Hermes-Signature = bec05b722f04e2a4b9fa447c76c64ffb3f6899b004dce60d28c461929d31d2b8
 ~~~
