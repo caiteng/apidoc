@@ -774,20 +774,21 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 ## 错误码对照表
 
-| 错误码       | 解释                       |
-| ----------- | --------                  |
-| 1001        | 内部错误，消息推送服务异常。   |
-| 1002        | 内部错误，数据库返回失败。    |
-| 1003        | 必要参数不能为空。           |
-| 1004        | 区块链返回错误。            |
-| 1005        | 格式化数据失败。             |
-| 3000        | 未知币种。             |
-| 3001        | 未知账户。             |
-| 3002        | 未知商户。             |
-| 3003        | 认证失败。             |
-| 4001        | 提现请求已存在。        |
-| 4002        | 创建提现请求失败。      |
-| 4003        | 金额不足。             |
-| 4004        | 没有找到充值记录。      |
-| 4005        | 没有找到提现记录。      |
-| 4006        | 创建新地址失败。        |
+| 错误码       |       意义         | 中文解释                   |
+| ----------- |--———————————----- |  --------                  |
+| 1001        | Internal error,SQS had broken down. | 内部错误，消息推送服务异常。   |
+| 1002        | Internal error,Mysql had broken down. |  内部错误，数据库返回失败。    |
+| 1003        | Missing params. |  必要参数不能为空。           |
+| 1004        | Blockchain return error.  |  区块链返回错误。            |
+| 1005        | Failed to json marshal. |  格式化数据失败。             |
+| 1006        | The amount is too small. |  金额太小。             |
+| 3000        | Unknown currency.  |  未知币种。             |
+| 3001        | Unknown account. |  未知账户。             |
+| 3002        | Unknown merchant. |  未知商户。             |
+| 3003        | Failed authentication. |  认证失败。             |
+| 4001        | Exsited withdraw apply. | 提现请求已存在。        |
+| 4002        | Failed to create deposition apply. | 创建提现请求失败。      |
+| 4003        | Lack of money.|  金额不足。             |
+| 4004        | Not found deposit's record. | 没有找到充值记录。      |
+| 4005        | Not found withdraw's record. |  没有找到提现记录。      |
+| 4006        | Failed to create a new address.  |  创建新地址失败。        |
