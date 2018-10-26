@@ -714,7 +714,6 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 # Request
 {
-  "data": {
     "type": "Deposit",
     "currency_code": "eth",
     "txid": "0xethereumtxid",
@@ -722,11 +721,9 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
     "state": "depositing", 
     "amount": 1.0,
     "memo": "blockchain memo"
-  }
 }
 
 ```
-
 
 
 
@@ -762,13 +759,11 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 ```
 # Request
 {
-  "data": {
     "type": "Withdraw",
     "currency_code": "eth",
     "txid": "0xethereumtxid",
     "state": "withdrawing", 
     "external_uuid": "merchant withdraw uuid"
-  }
 }
 
 ```
