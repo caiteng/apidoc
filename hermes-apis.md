@@ -775,7 +775,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 ## 错误码对照表
 
 | 错误码       |       意义         | 中文解释                   |
-| ----------- |--———————————----- |  --------                  |
+| ----------- | ------------------ |  --------                  |
 | 1001        | Internal error,SQS had broken down. | 内部错误，消息推送服务异常。   |
 | 1002        | Internal error,Mysql had broken down. |  内部错误，数据库返回失败。    |
 | 1003        | Missing params. |  必要参数不能为空。           |
