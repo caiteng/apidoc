@@ -172,7 +172,7 @@ Hermes 通过商户提供的回调接口，将充值信息或者提现状态反�
   "data": {
     "currency_code": "eth",
     "txid": "0xethereumtxid",
-    "state": "withdrawing",  // withdrawing|done
+    "state": "withdrawing",  // withdrawing|sent
     "external_uuid": "merchant withdraw uuid"
   }
 }
