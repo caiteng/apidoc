@@ -373,7 +373,6 @@ POST {{TEST_URL}}/v1beta/addresses/validate
 | from   | string | 提现资金流出方addr |
 | to     | string | 提现资金流入方addr |
 | value  | string | 提现金额 |
-| to     | string | 提现资金流入方addr |
 | memo   | string | 备注 |
 | external_uuid   | string | 客户端提现请求唯一标示 |
 
