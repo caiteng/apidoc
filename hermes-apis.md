@@ -1,5 +1,5 @@
 # OCX-Hermes 开发者接口 
-```当前版本：1.3```
+```当前版本：1.4```
 
 | 版本历史      | 备注               |时间                                          |
 | ---------- | -------------------           |           ---|
@@ -7,6 +7,7 @@
 | 1.1 | 增加版本修改历史，增加申请提现接口提示信息  |  2018/10/23  |
 | 1.2 | 增加错误码对照表，修改返回参数的错误码类型  |  2018/10/24  |
 | 1.3 | 增加回调地址接口                        |  2018/10/25  |
+| 1.4 | 金额将double改成string                    |  2018/10/29  |
 
 测试地址TEST_URL:`https://hermes.ocx.im`
 
@@ -151,13 +152,13 @@ func main() {
         {
             "uuid":"dbc4a2a6-bb5a-4129-a7a8-0f8bc4dda281",
             "address":"0xe37b4d97344f770309f1866bf93a7e3461441f6a",
-            "amount":1,
+            "amount":"1",
             "currency_code":"eth"
         },
         {
             "uuid":"b46c45b2-500a-4daa-8718-925c07ab0b1d",
             "address":"0xe37b4d97344f770309f1866bf93a7e3461441f6a",
-            "amount":0.5,
+            "amount":"0.5",
             "currency_code":"eth"
         },
         ......
@@ -356,7 +357,7 @@ POST {{TEST_URL}}/v1beta/addresses/validate
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
 | address        | string | 地址    |
-| amount         | double | 金额    |
+| amount         | string | 金额    |
 | memo           | string | 备注    |
 | external_uuid    | string | 客户端提现请求唯一标示 |
 
@@ -371,7 +372,7 @@ POST {{TEST_URL}}/v1beta/addresses/validate
 | state  | string | 状态 |
 | from   | string | 提现资金流出方addr |
 | to     | string | 提现资金流入方addr |
-| value  | double | 提现金额 |
+| value  | string | 提现金额 |
 | to     | string | 提现资金流入方addr |
 | memo   | string | 备注 |
 | external_uuid   | string | 客户端提现请求唯一标示 |
@@ -390,7 +391,7 @@ POST {{TEST_URL}}/v1beta/withdraws
         "currency_code":"eth",
         "state":"submitted",
         "to":"rngnb",
-        "value":0.002,
+        "value":"0.002",
         "memo":"gg",
         "external_uuid":"........"
     }
@@ -415,7 +416,7 @@ POST {{TEST_URL}}/v1beta/withdraws
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
-| balance  | double | 金额 |
+| balance  | string | 金额 |
 
 * 请求示例
 
@@ -426,8 +427,8 @@ GET {{TEST_URL}}/v1beta/accounts/eth/balance
 # Response
  {
     "data":{
-        "balance":0.8749999999999999,
-        "currency_code":eth
+        "balance":"0.8749999999999999",
+        "currency_code":"eth"
     }
 }
 ```
@@ -450,8 +451,8 @@ GET {{TEST_URL}}/v1beta/accounts/eth/balance
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
-| balance  | double | 金额 |
-| locked   | double | 锁定金额 |
+| balance  | string | 金额 |
+| locked   | string | 锁定金额 |
 
 
 * 请求示例
@@ -464,7 +465,7 @@ GET {{TEST_URL}}/v1beta/accounts/insur
 {
     "data":{
         "currency_code":"insur",
-        "balance":100
+        "balance":"100"
     }
 }
 ```
@@ -494,7 +495,7 @@ GET {{TEST_URL}}/v1beta/accounts/insur
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
 | uuid  | string | 订单唯一标示 |
-| amount   | double | 金额 |
+| amount   | string | 金额 |
 | address  | string | 地址 |
 
 
@@ -510,13 +511,13 @@ GET {{TEST_URL}}/v1beta/deposits
         {
             "uuid":"f2501ce0-141c-4972-8ad5-025d9f1fb50e",
             "address":"0xfb1daa0934cfd2e6d1928c8613298d7a5747c793",
-            "amount":1,
+            "amount":"1",
             "currency_code":"eth"
         },
         {
             "uuid":"5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34",
             "address":"0xa97ecd78da3bec89bd5bbd77132d3e0041bd110f",
-            "amount":100,
+            "amount":"100",
             "currency_code":"insur"
         }
     ]
@@ -543,7 +544,7 @@ GET {{TEST_URL}}/v1beta/deposits
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
 | uuid  | string | 订单唯一标示 |
-| amount   | double | 金额 |
+| amount   | string | 金额 |
 | address  | string | 地址 |
 
 
@@ -559,7 +560,7 @@ GET {{TEST_URL}}/v1beta/deposits/5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34
     "data":{
         "uuid":"5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34",
         "address":"0xa97ecd78da3bec89bd5bbd77132d3e0041bd110f",
-        "amount":100,
+        "amount":"100",
         "currency_code":"insur"
     }
 }
@@ -591,7 +592,7 @@ GET {{TEST_URL}}/v1beta/deposits/5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
 | uuid  | string | 订单唯一标示 |
-| amount   | double | 金额 |
+| amount   | string | 金额 |
 | address  | string | 地址 |
 
 
@@ -607,31 +608,31 @@ GET {{TEST_URL}}/v1beta/withdraws
         {
             "uuid":"90f72080-00ba-4c3e-ad6c-b2b45a1ec0fb",
             "address":"0xfb1daa0934cfd2e6d1928c8613298d7a5747c793",
-            "amount":0.007,
+            "amount":"0.007",
             "currency_code":"eth"
         },
         {
             "uuid":"25be73fa-a3a5-44fe-bbf8-42cf2180b760",
             "address":"0xfb1daa0934cfd2e6d1928c8613298d7a5747c793",
-            "amount":0.007,
+            "amount":"0.007",
             "currency_code":"eth"
         },
         {
             "uuid":"29cb14ee-1b35-4b8c-8825-e65044afdac5",
             "address":"rng nb",
-            "amount":0.002,
+            "amount":"0.002",
             "currency_code":"eth"
         },
         {
             "uuid":"bf02d0b7-8bf7-4d90-beb7-970327cefab9",
             "address":"rng nb",
-            "amount":0.002,
+            "amount":"0.002",
             "currency_code":"eth"
         },
         {
             "uuid":"5de0cf14-758b-451c-8e9f-344d0a6d9f9a",
             "address":"rngnb",
-            "amount":0.002,
+            "amount":"0.002",
             "currency_code":"eth"
         }
     ]
@@ -658,7 +659,7 @@ GET {{TEST_URL}}/v1beta/withdraws
 | ----------- | ------- | -------- |
 | currency_code  | string | 币种类型 |
 | uuid  | string | 订单唯一标示 |
-| amount   | double | 金额 |
+| amount   | string | 金额 |
 | address  | string | 地址 |
 
 
@@ -674,7 +675,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
     "data":{
         "uuid":"29cb14ee-1b35-4b8c-8825-e65044afdac5",
         "address":"rng nb",
-        "amount":0.002,
+        "amount":"0.002",
         "currency_code":"eth"
     }
 }
@@ -697,7 +698,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 | currency_code | string | 币种code  |
 | memo  | string | 备注              |
 | address  | string | 地址           |
-| amount  | double | 金额            |
+| amount  | string | 金额            |
 
 
 * 出参 （由双方沟通协定）
@@ -719,7 +720,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
     "txid": "0xethereumtxid",
     "address": "0xfromaddress",
     "state": "depositing", 
-    "amount": 1.0,
+    "amount": "1.0",
     "memo": "blockchain memo"
 }
 
