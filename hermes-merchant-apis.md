@@ -37,7 +37,7 @@
 
 ### API 请求范例
 
- 获取一个新的充值地址:
+登录:
 
 ```
 curl -i -H 'Content-Type: application/json' -XPOST  http://localhost:8080/login?username=test&password=123
