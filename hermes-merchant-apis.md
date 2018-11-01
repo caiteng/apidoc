@@ -291,7 +291,7 @@ Content-Length: 51
 | address  | string |  交易地址|
 | amount  | string | 交易金额 |
 | amount  | string | 交易金额 |
-| createdA_at   | string | 创建时间 |
+| created_at   | string | 创建时间 |
 | state  | string | done/withdrawing=提现完成/提现中 |
 | external_uuid     | string | 合作方提现订单唯一标示 |
 
