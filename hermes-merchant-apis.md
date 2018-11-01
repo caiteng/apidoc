@@ -155,7 +155,13 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | ------ |
-| data        | string | 结果     |
+| data        | string | 结果    |
+
+
+```
+{"data":"Login success"}
+
+```
 
 
 #### `POST /logout`   登出
@@ -178,7 +184,7 @@ Content-Length: 51
 
 
 ```
-{"data":"Login success"}
+{"data":"Logout success"}
 
 ```
 
