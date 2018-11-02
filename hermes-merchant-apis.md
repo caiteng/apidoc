@@ -180,10 +180,11 @@ Content-Length: 51
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
 | data  | string | 结果 |
+| token  | string | token |
 
 
 ```
-{"data":"Logout success"}
+{"data":"Login success","token":"d2735d6d-638b-4389-9109-98cf648e7d8b"}
 
 ```
 
