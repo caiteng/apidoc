@@ -299,7 +299,7 @@ Content-Length: 51
         {
             "txid":"fgbf",
             "confirmations":5,
-            "currency_code":"eth",
+            "currency_name":"eth",
             "address":"",
             "amount":"1",
             "memo":"",
@@ -346,7 +346,7 @@ Content-Length: 51
 {
     "data":[
         {
-            "currency_code":"eth",
+            "currency_name":"eth",
             "source_type":"Withdraw",
             "state":"done",
             "webhook_type":"http",
@@ -392,7 +392,7 @@ Content-Length: 51
 {
     "data":[
         {
-            "currency_code":"eth",
+            "currency_name":"eth",
             "address":"0xtrbsrbtsrtbrstbdtneetyete",
             "chain_name":"ethereum",
             "sn":"dgbdfs",
