@@ -74,8 +74,7 @@ curl -b "sess=MTU0MTA1NTM0M3xEdi1CQkFFQ180SUFBUkFCRUFBQVNQLUNBQUVHYzNSeWFXNW5EQX
         {
             "txid":"fgbf",
             "confirmations":5,
-            "merchant_code":"ocx",
-            "currency_code":"eth",
+            "currency_name":"eth",
             "address":"",
             "amount":"1",
             "memo":"",
@@ -206,8 +205,7 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| merchant_code  | string | 商户code |
-| currency_code  | string | 币种code |
+| currency_name  | string | 币种名称 |
 | balance  | string | 可用金额 |
 | locked  | string | 锁定金额 |
 | created_at   | string | 创建时间 |
@@ -216,8 +214,7 @@ Content-Length: 51
 {
     "data":[
         {
-            "merchant_code":"ocx",
-            "currency_code":"eth",
+            "currency_name":"以太币",
             "balance":"1",
             "locked":"1",
             "created_at":"0001-01-01T00:00:00Z"
@@ -246,8 +243,7 @@ Content-Length: 51
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
 | txid  | string | TxHash |
-| merchant_code  | string | 商户code |
-| currency_code  | string | 币种code |
+| currency_name  | string | 币种名称 |
 | address  | string |  交易地址|
 | amount  | string | 交易金额 |
 | memo  | string | 备注 |
@@ -261,8 +257,7 @@ Content-Length: 51
     "data":[
         {
             "txid":"txid",
-            "merchant_code":"ocx",
-            "currency_code":"eth",
+            "currency_name":"eth",
             "address":"adddd",
             "amount":"0.1",
             "memo":"test",
@@ -292,8 +287,7 @@ Content-Length: 51
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
 | txid  | string | TxHash |
-| merchant_code  | string | 商户code |
-| currency_code  | string | 币种code |
+| currency_name  | string | 币种名称 |
 | address  | string |  交易地址|
 | amount  | string | 交易金额 |
 | amount  | string | 交易金额 |
@@ -307,7 +301,6 @@ Content-Length: 51
         {
             "txid":"fgbf",
             "confirmations":5,
-            "merchant_code":"ocx",
             "currency_code":"eth",
             "address":"",
             "amount":"1",
@@ -338,8 +331,7 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| merchant_code  | string | 商户code |
-| currency_code  | string | 币种code |
+| currency_name  | string | 币种名称 |
 | source_type  | string | Withdraw/Deposit=提现/充值 |
 | state  | string | done/withdrawing/depositing=交易完成/提现中/充值中 |
 | webhook_type  | string |  回调通知方式 http/grpc|
@@ -356,7 +348,6 @@ Content-Length: 51
 {
     "data":[
         {
-            "merchant_code":"ocx",
             "currency_code":"eth",
             "source_type":"Withdraw",
             "state":"done",
@@ -393,10 +384,9 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| merchant_code  | string | 商户code |
-| currency_code  | string | 币种code |
+| currency_name  | string | 币种名称 |
 | address  | string |   充值地址|
-| chain_code  | string | 区块链产品标示 |
+| chain_name  | string | 区块链产品名称 |
 | sn  | string |  用户标示|
 | created_at   | string | 创建时间 |
 
@@ -404,10 +394,9 @@ Content-Length: 51
 {
     "data":[
         {
-            "merchant_code":"ocx",
             "currency_code":"eth",
             "address":"0xtrbsrbtsrtbrstbdtneetyete",
-            "chain_code":"ethereum",
+            "chain_name":"ethereum",
             "sn":"dgbdfs",
             "created_at":"0001-01-01T00:00:00Z"
         }
