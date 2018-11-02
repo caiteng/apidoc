@@ -247,7 +247,6 @@ Content-Length: 51
 | address  | string |  交易地址|
 | amount  | string | 交易金额 |
 | memo  | string | 备注 |
-| amount  | string | 交易金额 |
 | created_at   | string | 创建时间 |
 | state  | string | done/depositing=充值完成/充值中 |
 
