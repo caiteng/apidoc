@@ -345,7 +345,7 @@ POST {{TEST_URL}}/v1beta/addresses/validate
 
 ####  `POST /v1beta/withdraws ` 申请提现
 
- 注意：调用次接口之前，请先调用地址验证接口以保证地址（address）可用
+ 注意：调用此接口之前，请先调用地址验证接口以保证地址（address）可用
 
 * URL 
 
