@@ -750,7 +750,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| message  | string | 请求成功 |
+| message  | string | 请求结果 |
 
 
 
