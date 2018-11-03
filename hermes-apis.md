@@ -1,4 +1,4 @@
-# OCX-Hermes 开发者接口 
+# Hermes 开发者接口 
 ```当前版本：1.4```
 
 | 版本历史      | 备注               |时间                                          |
@@ -224,7 +224,7 @@ curl -i -H 'Content-Type: application/json' -H 'X-Hermes-Key: b645fe6588bfc8754a
 
 所有错误都遵循上面例子的格式，只是`code`和`message`不同。
 
-`code`是OCX-Hermes自定义的一个错误代码, 表明此错误的类别, message是具体的出错信息。
+`code`是Hermes自定义的一个错误代码, 表明此错误的类别, message是具体的出错信息。
 
 
 
