@@ -149,14 +149,12 @@ Hermes 通过商户提供的回调接口，将充值信息或者提现状态反�
 # Request
 {
   "type": "Deposit",
-  "data": {
-    "currency_code": "eth",
-    "txid": "0xethereumtxid",
-    "address": "0xfromaddress",
-    "state": "depositing",  // depositing|done
-    "amount": 1.0,
-    "memo": "blockchain memo"
-  }
+   "currency_code": "eth",
+   "txid": "0xethereumtxid",
+   "address": "0xfromaddress",
+   "state": "depositing",  // depositing|done
+   "amount": 1.0,
+   "memo": "blockchain memo"
 }
 ```
 
@@ -169,12 +167,10 @@ Hermes 通过商户提供的回调接口，将充值信息或者提现状态反�
 # Request
 {
   "type": "Withdraw",
-  "data": {
-    "currency_code": "eth",
-    "txid": "0xethereumtxid",
-    "state": "withdrawing",  // withdrawing|sent
-    "external_uuid": "merchant withdraw uuid"
-  }
+  "currency_code": "eth",
+  "txid": "0xethereumtxid",
+  "state": "withdrawing",  // withdrawing|sent
+  "external_uuid": "merchant withdraw uuid"
 }
 ```
 
