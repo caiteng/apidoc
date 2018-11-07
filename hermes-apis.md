@@ -782,6 +782,8 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 | 1004        | Blockchain return error.  |  区块链返回错误。            |
 | 1005        | Failed to json marshal. |  格式化数据失败。             |
 | 1006        | The amount is too small. |  金额太小。             |
+| 1500        | Internal error.          | 内部错误。 |
+| 2003        | Auth signature incorrect. | 验签出错。|
 | 3000        | Unknown currency.  |  未知币种。             |
 | 3001        | Unknown account. |  未知账户。             |
 | 3002        | Unknown merchant. |  未知商户。             |
