@@ -693,7 +693,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 | ----------- | ------- | -----   |
 | type  | string | 类型。充值/提现=Deposit/Withdraw   |
 | txid  | string | TxHash          |
-| state  | string | 状态。depositing/done  |
+| state  | string | 状态。depositing/done=充值中/充值完成  |
 | currency_code | string | 币种code  |
 | memo  | string | 备注              |
 | address  | string | 地址           |
@@ -738,7 +738,7 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 | ----------- | ------- | -----     |
 | type  | string | 类型。充值/提现=Deposit/Withdraw   |
 | txid  | string | TxHash           |
-| state  | string | 状态。withdrawing/done    |
+| state  | string | 状态。withdrawing/sent=提现中/提现完成   |
 | currency_code | string | 币种code  |
 | external_uuid  | string | 合作方交易唯一标示 |
 | memo  | string | 备注 |
