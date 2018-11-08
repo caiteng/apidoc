@@ -279,7 +279,7 @@ curl -i -H 'Content-Type: application/json' -H 'X-Hermes-Key: b645fe6588bfc8754a
 获取待充值地址
 `POST /v1beta/addresses`
 
-校验充值地址是否可用
+校验地址是否可用
 `POST /v1beta/addresses/validate`
 
 申请提现
@@ -352,7 +352,7 @@ curl -i -H 'Content-Type: application/json' -H 'X-Hermes-Key: b645fe6588bfc8754a
 ```
 
 
-#### `POST /v1beta/addresses/validate`  校验充值地址是否可用
+#### `POST /v1beta/addresses/validate`  校验地址是否可用
 
 * URL 
 
@@ -819,6 +819,36 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 ```
 
 
+## 3.业务场景流程分析 `beta`
+
+### 场景1：上链服务
+
+通过`hermes`实现自有用户的链上资金流转。 则大致流程如下：
+
+```
+
+1.合作方 提供合作方商户名称、英文简写（长度一般不超过6个字符）、消息回调通知地址。如果合作方有新的`token`接入，则还需要提供`token`名称、合约地址等基本信息；`hermes` 提供 `app_key`、`app_secret`、商户区块链地址（默认充入一定量的测试资金，一般 1`eth`足够，正式环境则需要商户自行充值）；
+2.合作方 需要在 `https://ropsten.etherscan.io`（测试链 `ropsten test net`）网上申请一个或多个测试账号，如果较难操作可以申请 `hermes` 技术协助；
+3.合作方 先后调用 校验地址是否可用接口 、申请提现接口，待均成功之后需留意回调信息是否正常返回。需要注意的是：交易成功的标志是，在区块链浏览器 `https://ropsten.etherscan.io`（测试链 `ropsten test net`）中能看到成功的交易记录以及相应的账号资金流转符合预期；
+4.待测试都通过之后准备部署正式环境的时候，双方需要把 1，3 流程中重要步骤走一遍。不同的是，商户自己需要提前向正式环境中的账号中充值入足额的资金，以备业务使用。同样的，正式环境中交易的详情可以在区块链浏览器 `https://www.etherscan.io`(以`eth`为例) 中查询到。
+
+```
+
+### 场景2：上币服务
+
+通过`hermes`实现商户创新币种的投资服务。 则大致流程如下：
+
+
+```
+
+1.合作方 提供合作方商户名称、英文简写（长度一般不超过6个字符）、消息回调通知地址、创新币种`token`名称、合约地址等基本信息（后期会提供商户后台自主操作）；`hermes` 提供 `app_key`、`app_secret`；
+2.合作方 需要在 `https://ropsten.etherscan.io`（测试链 `ropsten test net`）网上申请一个或多个测试账号，如果较难操作可以申请 `hermes`技术协助；
+3.合作方 先后调用 获取待充值地址接口、校验地址是否可用接口，然后需要自行向获得的区块链地址充值一定的资金，测试环境可以通过`https://www.myetherwallet.com/`实现充值，或者申请 `hermes` 技术协助，正式环境可以通过类似`imToken`等区块链钱包实现充值；
+4.对接ocx，略；
+5.合作方 先后调用 校验地址是否可用接口 、申请提现接口，待均成功之后需留意回调信息是否正常返回。需要注意的是：交易成功的标志是，在区块链浏览器 `https://ropsten.etherscan.io`（测试链 `ropsten test net`）中能看到成功的交易记录以及相应的账号资金流转符合预期；
+6.待测试都通过之后准备部署正式环境的时候，双方需要把 1，3，4，5 流程中重要步骤走一遍。不同的是，商户自己需要提前向正式环境中的账号中充值入足额的资金，以备业务使用。同样的，正式环境中交易的详情可以在区块链浏览器 `https://www.etherscan.io`(以`eth`为例) 中查询到。
+
+```
 
 
 
