@@ -169,7 +169,7 @@ func main() {
 
 ## 2.API
 
-**返回结果格式:`application/json`**
+**数据交互格式默认为:`application/json`**
 
 
 需要说明的是：所有接口的出参格式都是一样的，如下：
@@ -683,6 +683,9 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 
 #### `POST {{NOTIFY_URL}}`  充值回调
+
+` application/json `
+
 * NOTIFY_URL
 
  ` 合作方提供{{NOTIFY_URL}} `
@@ -728,6 +731,9 @@ GET {{TEST_URL}}/vv1beta/withdraws/29cb14ee-1b35-4b8c-8825-e65044afdac5
 
 
 #### `POST {{NOTIFY_URL}}`  提现回调
+
+` application/json `
+
 * NOTIFY_URL
 
  ` 合作方提供{{NOTIFY_URL}} `
