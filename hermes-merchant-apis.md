@@ -702,3 +702,7 @@ Content-Length: 51
 | 1010        | Exsited user.|  已存在用户。             |
 | 1011        | Unknown merchant,please add a merchant first.|  未知商户，请先添加。   |
 | 1012        | Register failed.|  注册失败。             |
+| 1013        | Bad cookie!     |  cookie异常。             |
+| 1014        | Action failed.  |  操作失败。             |
+| 1015        | Unknown currency.|  未知币种。             |
+| 1016        | Exsited currency.|  币种已存在             |
