@@ -328,6 +328,7 @@ Content-Length: 51
 | ----------- | ------- | -------- |
 | curr_page     | string |当前页，默认第1页 |
 | curr_size     | string |每页数量，默认20 |
+| txid  | string | TxHash |
 
 
 * 出参
@@ -380,6 +381,9 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
+| curr_page     | string |当前页，默认第1页 |
+| curr_size     | string |每页数量，默认20 |
+| txid  | string | TxHash |
 
 
 * 出参
@@ -470,6 +474,7 @@ Content-Length: 51
 | ----------- | ------- | -------- |
 | curr_page     | string |当前页，默认第1页 |
 | curr_size     | string |每页数量，默认20 |
+| txid  | string | TxHash |
 
 
 * 出参
