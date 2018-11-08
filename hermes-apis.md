@@ -27,21 +27,41 @@
 
 在注册并认证通过后之后，只需访问API密钥页面就可以得到您的密钥。
 
-所有的API都需要用这2个参数生成的`X-Hermes-Key`与`X-Hermes-Signature`用于身份验证。实际代码操作中这两个参数需要被添加到`http.Header`（具体可见下方完整代码示例）中。
+所有的API都需要使用`http_query`拼接成的字符串与`app_secret`这2个参数生成的`X-Hermes-Signature `与我们提供的`X-Hermes-Key`用于身份验证。实际代码操作中`X-Hermes-Signature `与`X-Hermes-Key`需要被添加到`http.Header`（具体可见下方完整代码示例）中。
 
 | 参数       | 解释                                                         |
 | ---------- | ---------------------------------------------  |
 | X-Hermes-Key |你的`app_key`                                   |
 | X-Hermes-Signature| 使用`http_query拼接成的字符串`与`app_secret`生成的签名 |
 
+
+代码片段可能是这样：
+
+```
+
+appKey := "你的appkey"
+appSecret := "你的appSecret"
+httpQuery:="Method|Path|经过排序的params"
+xHermesSignature := HmacSHA256(httpQuery,appSecret)
+
+req,_ := http.NewRequest("POST", grpcHttpUrl, nil)
+req.Header.Set("X-Hermes-Key", appKey)
+req.Header.Set("X-Hermes-Signature", xHermesSignature)
+
+
+```
+
+
 #### 签名步骤
 
 1.通过组合HTTP方法, 请求地址和请求参数得到 `payload`。
 
+需要注意的是：参数会进行排序，排序规则是 ：按照字母序排列，排列方式是 `a->z`，从第一个字母开始。如果首字母相同，则会对第二个字母进行排序，以此类推。
+
 ~~~
 # canonical_verb 是HTTP方法，例如 POST
 # canonical_uri 是请求地址， 例如 /v1beta/addresses
-# canonical_query 是请求参数通过&连接而成的字符串，参数包括http请求方式请求路径与请求参数, 参数必须按照字母序排列，例如 currency_code=eth&sn=1
+# canonical_query 是请求参数通过&连接而成的字符串，参数包括http请求方式请求路径与请求参数, 参数必须按照字母序排列，排列方式是 `a->z` ，例如 currency_code=eth&sn=1
 # 最后再把这三个字符串通过'|'字符连接起来，看起来就像这样:
 
 # POST|/v1beta/addresses|currency_code=eth&sn=1
@@ -60,6 +80,9 @@ end
  X-Hermes-Signature = bec05b722f04e2a4b9fa447c76c64ffb3f6899b004dce60d28c461929d31d2b8
 ~~~
 
+推荐使用一个在线工具：
+
+`http://tool.oschina.net/encrypt?type=2`
 
 
 #### 一个完整的`Golang`范例
