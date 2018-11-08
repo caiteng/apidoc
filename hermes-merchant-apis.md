@@ -215,6 +215,9 @@ Content-Length: 51
 添加币种
 `POST /currency`
 
+商户信息，用于修改回调地址
+` GET /merchant `
+
 #### `POST /login `  登录
 
 * URL 
