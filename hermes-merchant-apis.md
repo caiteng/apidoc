@@ -19,7 +19,8 @@
    "error":"...",
    "data":"...",
    "code":"...",
-   "page":"", ##  部分接口有此结构
+   "page":"...", ##  只有部分接口有
+   "token":"...", ## 只有登录接口有
 }
 ~~~
 
@@ -232,6 +233,7 @@ Content-Length: 51
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | ------ |
 | data        | string | 结果    |
+| code       | string | 默认返回结果码，最外层 |
 
 
 ```
@@ -256,9 +258,8 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| data  | string | 结果 |
 | token  | string | token |
-
+| code       | string | 默认返回结果码，最外层 |
 
 ```
 {"data":"Login success","token":"d2735d6d-638b-4389-9109-98cf648e7d8b","code":"200"}
@@ -287,6 +288,7 @@ Content-Length: 51
 | balance  | string | 可用金额 |
 | locked  | string | 锁定金额 |
 | created_at   | string | 创建时间 |
+| code       | string | 默认返回结果码，最外层 |
 
 ```
 {
@@ -336,6 +338,7 @@ Content-Length: 51
 | memo  | string | 备注 |
 | created_at   | string | 创建时间 |
 | state  | string | done/depositing=充值完成/充值中 |
+| code       | string | 默认返回结果码，最外层 |
 
 
 ```json
@@ -389,6 +392,7 @@ Content-Length: 51
 | external_uuid     | string | 合作方提现订单唯一标示 |
 | curr_page     | string |当前页，默认第1页 |
 | curr_size     | string |每页数量，默认20 |
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 
@@ -481,6 +485,7 @@ Content-Length: 51
 | last_retried_at  | string | 上一次重试时间 |
 | created_at   | string | 创建时间 |
 | updated_at     | string | 更新时间 |
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 {
@@ -535,6 +540,7 @@ Content-Length: 51
 | chain_name  | string | 区块链产品名称 |
 | sn  | string |  用户标示|
 | created_at   | string | 创建时间 |
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 {
@@ -578,6 +584,7 @@ Content-Length: 51
 | ----------- | ------- | -------- |
 | code  | string | 币种code |
 | name  | string | 币种名称|
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 {
@@ -637,6 +644,7 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 {
@@ -666,6 +674,7 @@ Content-Length: 51
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
+| code       | string | 默认返回结果码，最外层 |
 
 ```json
 {
