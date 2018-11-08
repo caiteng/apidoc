@@ -180,7 +180,31 @@ func main() {
    "data":"..."
 }
 ~~~
-当接口请求成功的时候，`error`不返回，只返回`data`部分；同理，请求接口失败的`data `不返回，只返回`error`部分。
+接口返回形式遵循  `https://jsonapi.org/` 标准。
+
+即当接口请求成功的时候，`error`不返回，只返回`data`部分；同理，请求接口失败的`data `不返回，只返回`error`部分。
+
+#### 接口返回成功：
+
+```
+{
+    "data":{...}
+}
+
+```
+
+#### 接口返回失败：
+
+```
+{
+   "error": { "code": "...", "message": "..."}
+}
+
+```
+
+
+
+
 `error`部分参数格式都是相同的，只有`data`部分各不相同。下面是`error`的参数格式：
 
 | 字段        | 类型    | 解释     |
@@ -223,9 +247,6 @@ curl -i -H 'Content-Type: application/json' -H 'X-Hermes-Key: b645fe6588bfc8754a
 ~~~
 
 所有错误都遵循上面例子的格式，只是`code`和`message`不同。
-
-`code`是Hermes自定义的一个错误代码, 表明此错误的类别, message是具体的出错信息。
-
 
 
 ### API列表
