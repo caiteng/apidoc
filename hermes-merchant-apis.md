@@ -685,6 +685,46 @@ Content-Length: 51
 ```
 
 
+#### ` GET /merchant `  商户信息，用于修改回调地址
+
+ 注意：需先登录
+
+* URL 
+
+`{{TEST_URL}}/merchant `
+
+* 入参
+
+| 字段        | 类型    | 解释     |
+| ----------- | ------- | -------- |
+
+
+* 出参
+
+| 字段        | 类型    | 解释      |
+| ----------- | ------- | ------- |
+| name         | string | 商户名称 |
+| webhook_type | string | 回调方式 |
+| webhook_url  | string | 回调地址 |
+| code         | string | 默认返回结果码，最外层 |
+
+
+```json
+
+{
+    "data":{
+        "name":"ocx",
+        "webhook_type":"grpc",
+        "webhook_url":"wwww"
+    },
+    "code":"200"
+}
+
+```
+
+
+
+
 
 ## 错误码对照表
 
