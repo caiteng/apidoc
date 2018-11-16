@@ -617,7 +617,7 @@ GET {{TEST_URL}}/v1beta/deposits/5d548c8e-7ae6-4b7c-b604-8f25b0fdcb34
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| uuid  | string | 充值唯一标示 |
+| uuid  | string | 提现唯一标示 |
 | page_number  | int | 页码 |
 | page_size  | int | 每页显示数量 |
 | start_time  | string | 开始时间 |
@@ -690,7 +690,7 @@ GET {{TEST_URL}}/v1beta/withdraws
 
 | 字段        | 类型    | 解释     |
 | ----------- | ------- | -------- |
-| uuid  | string | 充值唯一标示 |
+| uuid  | string | 提现唯一标示 |
 
 
 * 出参
