@@ -4,6 +4,7 @@
 | 版本历史      | 备注               |时间                                          |
 | ---------- | -------------------           |           ---|
 | 1.0 | 增加基本接口                |  2018/11/01  |
+| 1.1 | 增加修改密码                |  2018/11/27  |
 
 测试地址TEST_URL:`https://www-hermes.ocx.im`
 
@@ -71,7 +72,7 @@ page 用于分页操作。它的参数格式是：
 登录:
 
 ```
-curl -i -H 'Content-Type: application/json' -XPOST  http://localhost:8080/login?username=test&password=123
+curl -i -H 'Content-Type: application/json' -XPOST  http://localhost:8080/api/login?username=test&password=123
 ```
 
 成功返回：
@@ -92,7 +93,7 @@ Content-Length: 35
 
 ```
 
-curl -b "sess=MTU0MTA1NTM0M3xEdi1CQkFFQ180SUFBUkFCRUFBQVNQLUNBQUVHYzNSeWFXNW5EQXdBQ214dloybHVYM1YxYVdRR2MzUnlhVzVuRENZQUpHUXlOek0xWkRaa0xUWXpPR0l0TkRNNE9TMDVNVEE1TFRrNFkyWTJORGhsTjJRNFlnPT188LSlVwRbX5RPKRhVgYhYjEc899geElJC9-ItMkCUBu4=; Path=/; Expires=Thu, 01 Nov 2018 07:55:43 GMT; Max-Age=3600" http://localhost:8080/withdrawlist
+curl -b "sess=MTU0MTA1NTM0M3xEdi1CQkFFQ180SUFBUkFCRUFBQVNQLUNBQUVHYzNSeWFXNW5EQXdBQ214dloybHVYM1YxYVdRR2MzUnlhVzVuRENZQUpHUXlOek0xWkRaa0xUWXpPR0l0TkRNNE9TMDVNVEE1TFRrNFkyWTJORGhsTjJRNFlnPT188LSlVwRbX5RPKRhVgYhYjEc899geElJC9-ItMkCUBu4=; Path=/; Expires=Thu, 01 Nov 2018 07:55:43 GMT; Max-Age=3600" http://localhost:8080/api/withdrawlist
 
 
 ```
@@ -184,45 +185,48 @@ Content-Length: 51
 #### 公有接口
 
 登录
-`POST /login`
+`POST /api/login`
 
 #### 私有接口
 
 登出
-`POST /logout`
+`POST /api/logout`
 
 获取商户账户余额信息
-`GET /balance`
+`GET /api/balance`
 
 获取商户充值记录
-`GET /depositlist`
+`GET /api/depositlist`
 
 获取商户提现记录
-`GET /withdrawlist`
+`GET /api/withdrawlist`
 
 获取商户消息重发记录
-`GET /notificationlist`
+`GET /api/notificationlist`
 
 获取所有充值地址记录
-`GET /addresslist`
+`GET /api/addresslist`
 
 可用币种列表
-`GET /currencylist`
+`GET /api/currencylist`
 
 回调地址修改
-`PATCH /webhookurl`
+`PATCH /api/webhookurl`
 
 添加币种
-`POST /currency`
+`POST /api/currency`
 
 商户信息，用于修改回调地址
-` GET /merchant `
+` GET /api/merchant `
 
-#### `POST /login `  登录
+修改密码
+` POST /api/changepwd `
+
+#### `POST /api/login `  登录
 
 * URL 
 
-`{{TEST_URL}}/login`
+`{{TEST_URL}}/api/login`
 
 * 入参
  
@@ -245,11 +249,11 @@ Content-Length: 51
 ```
 
 
-#### `POST /logout`   登出
+#### `POST /api/logout`   登出
 
 * URL 
 
-`{{TEST_URL}}/logout`
+`{{TEST_URL}}/api/logout`
 
 * 入参
 
@@ -269,13 +273,13 @@ Content-Length: 51
 
 ```
 
-####  `GET /balance ` 获取商户账户余额信息
+####  `GET /api/balance ` 获取商户账户余额信息
 
  注意：需先登录
 
 * URL 
 
-`{{TEST_URL}}/balance`
+`{{TEST_URL}}/api/balance`
 
 * 入参
 
@@ -314,13 +318,13 @@ Content-Length: 51
 
 ```
 
-#### `GET /depositlist `  获取商户充值记录
+#### `GET /api/depositlist `  获取商户充值记录
 
  注意：需先登录 ;  分页返回
 
 * URL 
 
-`{{TEST_URL}}/depositlist `
+`{{TEST_URL}}/api/depositlist `
 
 * 入参
 
@@ -369,13 +373,13 @@ Content-Length: 51
 
 ```
 
-#### `GET /withdrawlist `  获取商户提现记录
+#### `GET /api/withdrawlist `  获取商户提现记录
 
  注意：需先登录 ;  分页返回
 
 * URL 
 
-`{{TEST_URL}}/withdrawlist `
+`{{TEST_URL}}/api/withdrawlist `
 
 * 入参
 
@@ -460,13 +464,13 @@ Content-Length: 51
 
 ```
 
-#### `GET /notificationlist `  获取商户消息重发记录
+#### `GET /api/notificationlist `  获取商户消息重发记录
 
  注意：需先登录 ;  分页返回
 
 * URL 
 
-`{{TEST_URL}}/notificationlist `
+`{{TEST_URL}}/api/notificationlist `
 
 * 入参
 
@@ -523,13 +527,13 @@ Content-Length: 51
 ```
 
 
-#### `GET /addresslist `  获取所有充值地址记录 
+#### `GET /api/addresslist `  获取所有充值地址记录 
 
  注意：需先登录 ;  分页返回
 
 * URL 
 
-`{{TEST_URL}}/addresslist `
+`{{TEST_URL}}/api/addresslist `
 
 * 入参
 
@@ -572,13 +576,13 @@ Content-Length: 51
 ```
 
 
-#### `GET /currencylist `  可用币种列表
+#### `GET /api/currencylist `  可用币种列表
 
  注意：需先登录
 
 * URL 
 
-`{{TEST_URL}}/currencylist `
+`{{TEST_URL}}/api/currencylist `
 
 * 入参
 
@@ -632,13 +636,13 @@ Content-Length: 51
 ```
 
 
-#### ` PATCH /webhookurl `  回调地址修改
+#### ` PATCH /api/webhookurl `  回调地址修改
 
  注意：需先登录
 
 * URL 
 
-`{{TEST_URL}}/webhookurl `
+`{{TEST_URL}}/api/webhookurl `
 
 * 入参
 
@@ -662,13 +666,13 @@ Content-Length: 51
 
 ```
 
-#### ` POST /currency `  添加币种
+#### ` POST /api/currency `  添加币种
 
  注意：需先登录
 
 * URL 
 
-`{{TEST_URL}}/currency `
+`{{TEST_URL}}/api/currency `
 
 * 入参
 
@@ -693,13 +697,13 @@ Content-Length: 51
 ```
 
 
-#### ` GET /merchant `  商户信息，用于修改回调地址
+#### ` GET /api/merchant `  商户信息，用于修改回调地址
 
  注意：需先登录
 
 * URL 
 
-`{{TEST_URL}}/merchant `
+`{{TEST_URL}}/api/merchant `
 
 * 入参
 
@@ -732,6 +736,39 @@ Content-Length: 51
 
 
 
+#### ` POST /api/changepwd `  修改密码
+
+ 注意：需先登录
+
+* URL 
+
+`{{TEST_URL}}/api/changepwd `
+
+* 入参
+
+| 字段        | 类型    | 解释     |
+| ----------- | ------- | -------- |
+| password  | string |  原密码 |
+| newpassword  | string |  新密码 |
+| confirmpassword  | string |  确认新密码 |
+
+
+
+* 出参
+
+| 字段        | 类型    | 解释     |
+| ----------- | ------- | -------- |
+| code       | string | 默认返回结果码，最外层 |
+
+```json
+{
+    "data":{"Action success"},
+    "code":"200"
+}
+
+```
+
+
 
 
 ## 错误码对照表
@@ -753,4 +790,9 @@ Content-Length: 51
 | 1013        | Bad cookie!     |  cookie异常。             |
 | 1014        | Action failed.  |  操作失败。             |
 | 1015        | Unknown currency.|  未知币种。             |
-| 1016        | Exsited currency.|  币种已存在             |
+| 1016        | Exsited currency.|  币种已存在。            |
+| 1017        | Confirm password was wrong.|  两次密码输入有误。            |
+| 1018        | Geneate new password failed.|  生成新密码失败。            |
+| 1019        | Change password failed.|  更新密码失败。            |
+| 1020        | The new password cannot be the same as the old one.|  新密码不能与老密码相同。            |
+| 1021        | The password is too short, at least 6 bits.|  新密码至少6位。            |
